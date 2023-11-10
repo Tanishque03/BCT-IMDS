@@ -104,13 +104,13 @@ def encrypT(params,EMR, qki, qkl, skt, ski, qkt, idi, idt,del_i, keywords, idj):
     
     print(f'Ci : {C_i}\n')
     print(f'Decrypt Ci : {decrypt_ci}\n')
-    if str( C_i)==str(decrypt_ci):
+    if str(C_i)==str(decrypt_ci):
         print("decrypted_ci and C_i matched")
 
     C_3 = params['e'](qkl, r_t*params['P0'])
     A_i = (r_t * (skt + params['H0'](wi)) * params['P1']) + (r_t * params['H0'](wi) * params['P'])
-    exp = r_t * (skt + params['H0'](wi))
-    # J_i = params['e'](params['P'], params['P1']) ** (r_t * (skt + params['H0'](wi)))
+    exp = params['H1'](str(r_t * (skt + params['H0'](wi))))
+    J_i = params['e'](params['P'], params['P1']) ** exp
     X_bar = []
     for i in range(1, len(keywords)+1):
         temp = r_t * (params['H0'](wi) ** i) * params['P']
@@ -120,7 +120,7 @@ def encrypT(params,EMR, qki, qkl, skt, ski, qkt, idi, idt,del_i, keywords, idj):
     print(f'Ai : {A_i}\n')
     print(f'exp : {exp}\n')
     print(f'X_bar : {X_bar}\n')
-    # print(f'Ji : {J_i}\n')
+    print(f'Ji : {J_i}\n')
 
     # Consensus protocol for private blockchain
     # Dt selects rt_bar
