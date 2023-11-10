@@ -113,7 +113,7 @@ def encrypT(params,EMR, qki, qkl, skt, ski, qkt, idi, idt,del_i, keywords, idj):
     # J_i = params['e'](params['P'], params['P1']) ** (r_t * (skt + params['H0'](wi)))
     X_bar = []
     for i in range(1, len(keywords)+1):
-        temp = r_t * (params['H0'] ** i) * params['P']
+        temp = r_t * (params['H0'](wi) ** i) * params['P']
         X_bar.append(temp)
 
     print(f'C3 : {C_3}\n')

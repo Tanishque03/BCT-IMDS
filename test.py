@@ -13,17 +13,17 @@ def identitySearch(params,T_id,qk_i,C_id,del_arr):
 
 def keywordSearch(params,id_l,id_k,sk_l,qk_l,t_i,t_i1,sk_i,sk_k,qk_k,C_wi,R_t,V_t,w_j,keywords):
     # step 1
-    flag=False
-    for word in keywords:
-        temp_21=params['e'](params['H0'](word),sk_i)**(t_i*t_i1)
-        temp_12=params['e'](params['H0'](w_j),sk_i)**(t_i*t_i1)
-        if str(temp_21*C_wi)==str(temp_12*(params['e'](sk_i,R_t))):
-            print("Keyword match found")
-            flag=True
-            break
-    if not flag:
-        print("Keyword match not found")
-        return
+    # flag=False
+    # for word in keywords:
+    #     temp_21=params['e'](params['H0'](word),sk_i)**(t_i*t_i1)
+    #     temp_12=params['e'](params['H0'](w_j),sk_i)**(t_i*t_i1)
+    #     if str(temp_21*C_wi)==str(temp_12*(params['e'](sk_i,R_t))):
+    #         print("Keyword match found")
+    #         flag=True
+    #         break
+    # if not flag:
+    #     print("Keyword match not found")
+    #     return
     
     # step 2
     f_l=params['group'].random(ZR)
@@ -60,8 +60,8 @@ def keywordSearch(params,id_l,id_k,sk_l,qk_l,t_i,t_i1,sk_i,sk_k,qk_k,C_wi,R_t,V_
         return
     
     cipher = AESCipher(str(S_lk1))
-    Eslk_Rt=cipher.encrypt(R_t)
+    Eslk_Rt=cipher.encrypt(str(R_t))
     Eslk_Vt=cipher.encrypt(str(V_t))
-    Eslk_H1Vl=cipher.encrypt(str(params['H1'](V_l)))
+    Eslk_H1Vl=cipher.encrypt(str(params['H1'](str(V_l))))
     Eslk_temp=cipher.encrypt(str(params['e'](sk_l,R_t)))
     return S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp

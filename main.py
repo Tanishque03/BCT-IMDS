@@ -54,5 +54,5 @@ if flag:
     print('Indentity of patient found!!')
 
 
-S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp=keywordSearch(params,idl,idk,skl,qkl,t_i,t_i1,ski,skk,qkk,C_wi,R_t,V_t,w_j,keywords, idj)
+S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp=keywordSearch(params,idl,idk,skl,qkl,t_i,t_i1,ski,skk,qkk,C_wi,R_t,V_t,w_j,keywords)
 print(S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp)
