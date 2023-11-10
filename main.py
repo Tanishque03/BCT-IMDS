@@ -39,7 +39,7 @@ print(str(EMR))
 keywords = ['medical', 'data', 'covid']
 n = len(keywords)
 
-idi, idt,idk,idl=patient_id,doctor_id,dataConsumer_id,cloud_id
+idi, idt,idk,idl, idj=patient_id,doctor_id,dataConsumer_id,cloud_id,hospital_id
 wi,R_t,V_t,C_wi,C_id,t_i=encrypT(params,EMR, qki, qkl, skt, ski, qkt, idi, idt, del_i, keywords)
 print("Cwi",C_wi)
 
@@ -54,5 +54,5 @@ if flag:
     print('Indentity of patient found!!')
 
 
-S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp=keywordSearch(params,idl,idk,skl,qkl,t_i,t_i1,ski,skk,qkk,C_wi,R_t,V_t,w_j,keywords)
+S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp=keywordSearch(params,idl,idk,skl,qkl,t_i,t_i1,ski,skk,qkk,C_wi,R_t,V_t,w_j,keywords, idj)
 print(S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp)
