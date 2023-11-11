@@ -41,7 +41,7 @@ n = len(keywords)
 
 idi, idt,idk,idl, idj=patient_id,doctor_id,dataConsumer_id,cloud_id,hospital_id
 wi,R_t,V_t,C_3,C_id,t_i=encrypT(params,EMR, qki, qkl, skt, ski, qkt, idi, idt, del_i, keywords, idj)
-print("Cwi",C_wi)
+print("C3",C_3)
 
 T_w,T_id,t_i1,w_j=trapdooR(params,skk,ski,qki,qkk,idi,idk,del_i,keywords)
 print('We are at trapdoor function ')
