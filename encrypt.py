@@ -137,4 +137,4 @@ def encrypT(params,EMR, qki, qkl, skt, ski, qkt, idi, idt,del_i, keywords, idj):
     print(f'gamma_t : {gamma_t}\n')
     
     C_wi=(C_i,C_3)
-    return wi,R_t,V_t,C_wi,C_id,t_i
+    return wi,R_t,V_t,C_3,C_id,t_i
