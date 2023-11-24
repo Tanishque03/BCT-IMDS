@@ -3,6 +3,7 @@ from extract import generateUser
 from encrypt import encrypT
 from trapdoor import trapdooR
 from test import identitySearch , keywordSearch
+from decrypt import func
 import random
 from charm.toolbox.pairinggroup import ZR, G1, G2
 
@@ -39,20 +40,25 @@ print(str(EMR))
 keywords = ['medical', 'data', 'covid']
 n = len(keywords)
 
+print('We are at BCT-IMDS-Encrypt function ')
 idi, idt,idk,idl, idj=patient_id,doctor_id,dataConsumer_id,cloud_id,hospital_id
 wi,R_t,V_t,C_3,C_id,t_i=encrypT(params,EMR, qki, qkl, skt, ski, qkt, idi, idt, del_i, keywords, idj)
 print("C3",C_3)
 
-T_w,T_id,t_i1,w_j=trapdooR(params,skk,ski,qki,qkk,idi,idk,del_i,keywords)
-print('We are at trapdoor function ')
-print(T_w,T_id,t_i1,w_j)
+print('We are at BCT-IMDS-Trapdoor function ')
+T_w,T_id,t_i1,w_j,S_ik=trapdooR(params,skk,ski,qki,qkk,idi,idk,del_i,keywords)
+# print(T_w,T_id,t_i1,w_j,S_ik)
 
+print('We are at BCT-IMDS-Test  --> BCT-IMDS-Identity Search function ')
 del_inew,flag=identitySearch(params,T_id,qki,C_id,del_arr)
 if str(del_i)==str(del_inew):
     print("True found")
 if flag:
     print('Indentity of patient found!!')
 
+print('We are at BCT-IMDS-Test  --> BCT-IMDS-Keyword Search function ')
+S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp=keywordSearch(params,idl,idk,skl,qkl,t_i,t_i1,ski,skk,qkk,C_3,R_t,V_t,w_j,keywords)
+# print(S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp)
 
-S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp=keywordSearch(params,idl,idk,skl,qkl,t_i,t_i1,ski,skk,qkk,C_wi,R_t,V_t,w_j,keywords)
-print(S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp)
+emr=func(params,S_ik,S_lk1,Eslk_Rt,Eslk_Vt,Eslk_H1Vl,Eslk_temp,ski,R_t,skl)
+print(emr)

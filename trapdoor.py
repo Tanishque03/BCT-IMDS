@@ -103,4 +103,4 @@ def trapdooR(params,sk_k,sk_i,qk_i,qk_k,id_i,id_k,del_i,keywords):
     print(f'Keyword : {w_j}\nEncrypted and sent keyword : {Esik}')
     T_w,t_i1=recieve_keyword(params,S_ik,Esik,sk_i)
     T_id=trapdoor2(params,t_i1,sk_i,del_i,qk_i)
-    return T_w,T_id,t_i1,w_j
+    return T_w,T_id,t_i1,w_j,S_ik

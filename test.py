@@ -14,10 +14,10 @@ def identitySearch(params,T_id,qk_i,C_id,del_arr):
 def keywordSearch(params,id_l,id_k,sk_l,qk_l,t_i,t_i1,sk_i,sk_k,qk_k,C_3,R_t,V_t,w_j,keywords):
     # step 1
     flag=False
+    temp_12=params['e'](params['H0'](w_j),sk_i)**(t_i*t_i1)
     for word in keywords:
         temp_21=params['e'](params['H0'](word),sk_i)**(t_i*t_i1)
-        temp_12=params['e'](params['H0'](w_j),sk_i)**(t_i*t_i1)
-        if str(temp_21*C_3)==str(temp_12*(params['e'](sk_i,R_t))):
+        if str(temp_21*C_3)==str(temp_12*(params['e'](sk_l,R_t))):
             print("Keyword match found")
             flag=True
             break
